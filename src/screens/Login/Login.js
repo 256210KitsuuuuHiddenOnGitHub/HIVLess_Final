@@ -19,7 +19,7 @@ export default function Login() {
 
   return (
     <NativeBaseProvider>
-      <SafeAreaView style={{ backgroundColor: "#011F3C", flex: 1 }}>
+      <SafeAreaView style={{ backgroundColor: "#2A2B2DFF", flex: 1 }}>
         {/* This is The Logo of HIVLess */}
         <ImageBackground
           source={require("./../../../assets/imgs/HIVLess.png")}
@@ -96,7 +96,7 @@ export default function Login() {
         {/* LOGIN Button */}
         <Button
           size="lg"
-          bg="#0055FE"
+          bg="#2DA8D8FF"
           _text={{ color: "white", fontSize: "xl", fontWeight: "bold" }}
           mt={4}
           w={{
@@ -108,11 +108,13 @@ export default function Login() {
         >
           LOGIN
         </Button>
+        {/* Create new account */}
         <TouchableOpacity style={{ padding: 12 }}>
           <Text style={{ color: "white", alignSelf: "center", margin: 10 }}>
             Create new account
           </Text>
         </TouchableOpacity>
+        {/* Divider */}
         <View
           style={{
             flexDirection: "row",
@@ -125,10 +127,11 @@ export default function Login() {
           <Text style={{ marginHorizontal: 10, color: "gray" }}>OR</Text>
           <View style={{ height: 1, flex: 1, backgroundColor: "gray" }} />
         </View>
+        {/* Button Google and Email */}
         <Stack space={10} w="100%" alignItems="center">
           <Button
             onPress={() => {}}
-            color="#5185ED"
+            color="#2DA8D8FF"
             variant="solid"
             w={{
               base: "80%",

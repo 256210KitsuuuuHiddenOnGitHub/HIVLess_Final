@@ -79,6 +79,7 @@ export default function Login() {
             placeholder="Password"
           />
         </Stack>
+        {/* Forgot Password */}
         <TouchableOpacity>
           <Text
             style={{
@@ -86,7 +87,7 @@ export default function Login() {
               color: "white",
               fontSize: 12,
               marginLeft: 220,
-              marginBottom: 15,
+              marginBottom: 30,
             }}
           >
             Forgot your Password?

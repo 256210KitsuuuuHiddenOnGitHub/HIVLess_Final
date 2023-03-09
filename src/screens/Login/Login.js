@@ -19,7 +19,6 @@ export default function Login() {
 
   return (
     <NativeBaseProvider>
-    
       <SafeAreaView style={{ backgroundColor: "#011F3C", flex: 1 }}>
         {/* This is The Logo of HIVLess */}
         <ImageBackground
@@ -35,6 +34,7 @@ export default function Login() {
         />
         {/* This stack is for Inputs */}
         <Stack space={4} w="100%" alignItems="center">
+          {/* Username input */}
           <Input
             fontSize={20}
             w={{
@@ -52,6 +52,8 @@ export default function Login() {
             color="white"
             placeholder="Username"
           />
+          {/* Password input */}
+
           <Input
             fontSize={20}
             w={{
@@ -77,7 +79,7 @@ export default function Login() {
             placeholder="Password"
           />
         </Stack>
-        <View>
+        <TouchableOpacity>
           <Text
             style={{
               marginTop: 10,
@@ -89,7 +91,8 @@ export default function Login() {
           >
             Forgot your Password?
           </Text>
-        </View>
+        </TouchableOpacity>
+        {/* LOGIN Button */}
         <Button
           size="lg"
           bg="#0055FE"

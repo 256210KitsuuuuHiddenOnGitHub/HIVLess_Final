@@ -90,7 +90,7 @@ export default function Login() {
               marginBottom: 30,
             }}
           >
-            Forgot your Password?
+            Forgot your Password? 
           </Text>
         </TouchableOpacity>
         {/* LOGIN Button */}

@@ -19,7 +19,7 @@ export default function Login() {
 
   return (
     <NativeBaseProvider>
-      <SafeAreaView style={{ backgroundColor: "#2A2B2DFF", flex: 1 }}>
+      <SafeAreaView style={{ backgroundColor: "#2A2B2DFF", flex: 1,marginTop:50 }}>
         {/* This is The Logo of HIVLess */}
         <ImageBackground
           source={require("./../../../assets/imgs/HIVLess.png")}
@@ -28,7 +28,7 @@ export default function Login() {
             height: 200,
             alignSelf: "center",
             marginBottom: 10,
-            marginTop: 30,
+            // marginTop: 30,
           }}
           resizeMode="cover"
         />

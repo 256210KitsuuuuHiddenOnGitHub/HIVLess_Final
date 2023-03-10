@@ -2,7 +2,7 @@ import React from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { View, Text, ImageBackground } from "react-native";
+import { View, Text, ImageBackground,StatusBar } from "react-native";
 import HomeScreen from "../Home/Home";
 import MessageScreen from "../Message/Message";
 import LocationScreen from "../Location/Location";
@@ -18,8 +18,13 @@ const Tab = createMaterialTopTabNavigator();
 export default function NavTabs() {
   return (
     <>
+      <StatusBar
+        barStyle="light-content"
+        hidden={false}
+        backgroundColor="#2A2B2DFF"
+      />
       {/* Image ICON on TOP */}
-      <View style={{ backgroundColor: "#2B2B2C", marginTop: 50 }}>
+      <View style={{ backgroundColor: "#2B2B2C" }}>
         <ImageBackground
           source={require("../../../assets/imgs/HIVLess.png")}
           style={{ height: 80, width: 150 }}

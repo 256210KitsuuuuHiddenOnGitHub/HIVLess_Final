@@ -3,8 +3,8 @@ import { View, Text } from "react-native";
 
 const Message = () => {
   return (
-    <View style={{ backgroundColor: "#2B2B2C", flex: 1 }}>
-      <Text style={{ marginTop: 20, color: "white" }}>Message</Text>
+    <View style={{ backgroundColor: "white", flex: 1 }}>
+      <Text style={{ marginTop: 20, color: "black" }}>Message</Text>
     </View>
   );
 };

@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { View, Text, ImageBackground,StatusBar } from "react-native";
+import { View, Text, ImageBackground, StatusBar } from "react-native";
 import HomeScreen from "../Home/Home";
 import MessageScreen from "../Message/Message";
 import LocationScreen from "../Location/Location";
@@ -19,12 +19,12 @@ export default function NavTabs() {
   return (
     <>
       <StatusBar
-        barStyle="light-content"
+        barStyle="dark-content"
         hidden={false}
-        backgroundColor="#2A2B2DFF"
+        backgroundColor="white"
       />
       {/* Image ICON on TOP */}
-      <View style={{ backgroundColor: "#2B2B2C" }}>
+      <View style={{ backgroundColor: "white" }}>
         <ImageBackground
           source={require("../../../assets/imgs/HIVLess.png")}
           style={{ height: 80, width: 150 }}
@@ -34,77 +34,61 @@ export default function NavTabs() {
       {/* Navigation Tab */}
       <NavigationContainer>
         <Tab.Navigator
-          screenOptions={{
+          screenOptions={({ route }) => ({
             tabBarShowLabel: false,
             tabBarShowIcon: true,
+            tabBarActiveTintColor: "blue",
+            tabBarInactiveTintColor: "black",
             tabBarIconStyle: {
               height: 30,
               width: 30,
             },
             tabBarStyle: {
-              backgroundColor: "#2B2B2C",
+              backgroundColor: "white",
               // paddingBottom:10
             },
-          }}
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
+
+              if (route.name === "Home") {
+                iconName = "home";
+              } else if (route.name === "Message") {
+                iconName = "message-text-outline";
+              } else if (route.name === "Location") {
+                iconName = "map-marker";
+              } else if (route.name === "Notifications") {
+                iconName = "bell-outline";
+              } else if (route.name === "Menu") {
+                iconName = "menu";
+              }
+
+              // Change icon color when selected
+              color = focused ? "blue" : "black";
+
+              return (
+                <MaterialCommunityIcons
+                  name={iconName}
+                  size={22}
+                  color={color}
+                />
+              );
+            },
+          })}
+          // screenOptions={{
+          //   activeTintColor: "blue",
+          //   inactiveTintColor: "black",
+          // }}
         >
           {/* Home Screen */}
-          <Tab.Screen
-            name="Home"
-            component={HomeScreen}
-            options={{
-              tabBarIcon: ({ color }) => (
-                <Feather name="home" size={24} color={"white"} />
-              ),
-            }}
-          />
+          <Tab.Screen name="Home" component={HomeScreen} />
           {/* Message Screen */}
-          <Tab.Screen
-            name="Message"
-            component={MessageScreen}
-            options={{
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons
-                  name="message-text-outline"
-                  size={24}
-                  color={"white"}
-                />
-              ),
-            }}
-          />
+          <Tab.Screen name="Message" component={MessageScreen} />
           {/* Location Screen */}
-          <Tab.Screen
-            name="Location"
-            component={LocationScreen}
-            options={{
-              tabBarIcon: ({ color }) => (
-                <FontAwesome name="map-marker" size={24} color={"white"} />
-              ),
-            }}
-          />
+          <Tab.Screen name="Location" component={LocationScreen} />
           {/* Notification Screen */}
-          <Tab.Screen
-            name="Notifications"
-            component={NotificationsScreen}
-            options={{
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons
-                  name="bell-outline"
-                  size={24}
-                  color={"white"}
-                />
-              ),
-            }}
-          />
+          <Tab.Screen name="Notifications" component={NotificationsScreen} />
           {/* Menu Screen */}
-          <Tab.Screen
-            name="Menu"
-            component={MenuScreen}
-            options={{
-              tabBarIcon: ({ color }) => (
-                <MaterialCommunityIcons name="menu" size={24} color={"white"} />
-              ),
-            }}
-          />
+          <Tab.Screen name="Menu" component={MenuScreen} />
         </Tab.Navigator>
       </NavigationContainer>
     </>

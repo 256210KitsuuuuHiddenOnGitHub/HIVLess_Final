@@ -7,7 +7,7 @@ import { NativeBaseProvider, Stack } from "native-base";
 const Home = () => {
   return (
     <NativeBaseProvider>
-      <ScrollView style={{ backgroundColor: "#2B2B2C", flex: 1 }}>
+      <ScrollView style={{ backgroundColor: "white", flex: 1 }}>
         <HomeCard
           imageUrl="https://hms.harvard.edu/sites/default/files/media/GettyImages-1063376014%20BI-850.jpg"
           title="Searching for an HIV Cure"

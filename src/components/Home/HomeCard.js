@@ -21,10 +21,10 @@ const HomeCard = ({ imageUrl, title, description, onPress }) => {
       <Box alignItems="center" mb={4} mt={10}>
         <Box
           maxW="370"
-          rounded="lg"
+          rounded="xl"
           overflow="hidden"
           borderColor="coolGray.200"
-          borderWidth="1"
+          borderWidth="2"
         >
           <Box>
             <AspectRatio w="100%" ratio={16 / 9}>
@@ -33,11 +33,11 @@ const HomeCard = ({ imageUrl, title, description, onPress }) => {
           </Box>
           <Stack p="4" space={3}>
             <Stack space={2}>
-              <Heading size="md" ml="-1" color="white">
+              <Heading size="md" ml="-1" color="black">
                 {title}
               </Heading>
             </Stack>
-            <Text fontWeight="400" color="white" textAlign="justify">
+            <Text fontWeight="400" color="black" textAlign="justify">
               {description}
             </Text>
 

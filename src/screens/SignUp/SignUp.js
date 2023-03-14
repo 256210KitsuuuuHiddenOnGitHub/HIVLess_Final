@@ -36,9 +36,9 @@ export default function SignUp() {
           source={require("./../../../assets/imgs/HIVLess.png")}
           style={{
             width: 300,
-            height: 200,
+            height: 100,
             alignSelf: "center",
-            marginBottom: 10,
+            marginBottom: 50,
             // marginTop: 30,
           }}
           resizeMode="cover"
@@ -166,7 +166,7 @@ export default function SignUp() {
 
         {/* Button Google and Email */}
 
-        <Stack space={10} w="100%" alignItems="center">
+        <Stack space={5} w="100%" alignItems="center">
           <Button
             onPress={() => {}}
             color="#2DA8D8FF"

@@ -26,7 +26,7 @@ export default function NavTabs() {
       {/* Image ICON on TOP */}
       <View style={{ backgroundColor: "white" }}>
         <ImageBackground
-          source={require("../../../assets/imgs/HIVLess.png")}
+          source={require("../../../assets/imgs/HIVLessBlack.png")}
           style={{ height: 80, width: 150 }}
           resizeMode="cover"
         />
@@ -63,7 +63,7 @@ export default function NavTabs() {
               }
 
               // Change icon color when selected
-              color = focused ? "blue" : "black";
+              color = focused ? "#0FA5E8" : "black";
 
               return (
                 <MaterialCommunityIcons

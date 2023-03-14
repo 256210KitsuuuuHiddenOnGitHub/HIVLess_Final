@@ -20,8 +20,22 @@ import {
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../auth/firebase";
+import { useNavigation } from "@react-navigation/native";
 export default function SignUp() {
   const [show, setShow] = React.useState(false);
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const navigation = useNavigation();
+
+  const onHandleSignUp = () => {
+    if (userName !== "" && password !== "") {
+      createUserWithEmailAndPassword(auth, userName, password)
+        .then(() => console.log("SignUp Success"))
+        .catch((err) => Alert.alert("SignUp Error", err.message));
+    }
+  };
 
   return (
     <NativeBaseProvider>
@@ -62,6 +76,8 @@ export default function SignUp() {
             }
             color="white"
             placeholder="Username"
+            value={userName}
+            onChangeText={(text) => setUserName(text)}
           />
           {/* Password input */}
 
@@ -88,6 +104,8 @@ export default function SignUp() {
             }
             color="white"
             placeholder="Password"
+            value={password}
+            onChangeText={(text) => setPassword(text)}
           />
           {/*Confirm Password input */}
           <Input
@@ -113,22 +131,11 @@ export default function SignUp() {
             }
             color="white"
             placeholder="Confirm Password"
+            value={password}
+            onChangeText={(text) => setPassword(text)}
           />
         </Stack>
-        {/* Forgot Password */}
-        <TouchableOpacity>
-          <Text
-            style={{
-              marginTop: 10,
-              color: "white",
-              fontSize: 12,
-              marginLeft: 220,
-              marginBottom: 30,
-            }}
-          >
-            Forgot your Password?
-          </Text>
-        </TouchableOpacity>
+
         {/* Sign UP Button */}
         <Button
           size="lg"
@@ -141,11 +148,15 @@ export default function SignUp() {
           }}
           alignSelf="center"
           rounded="full"
+          marginTop={10}
         >
           Sign Up
         </Button>
         {/*  Already have an account */}
-        <TouchableOpacity style={{ padding: 12 }}>
+        <TouchableOpacity
+          style={{ padding: 12 }}
+          onPress={() => navigation.navigate("Login")}
+        >
           <Text style={{ color: "white", alignSelf: "center", margin: 10 }}>
             Already have an account
           </Text>
@@ -168,7 +179,7 @@ export default function SignUp() {
 
         <Stack space={5} w="100%" alignItems="center">
           <Button
-            onPress={() => {}}
+            onPress={onHandleSignUp}
             color="#2DA8D8FF"
             variant="solid"
             w={{

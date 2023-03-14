@@ -16,13 +16,28 @@ import {
   ImageBackground,
   Text,
   StatusBar,
+  Alert,
 } from "react-native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { signInwithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../auth/firebase";
+import { useNavigation } from "@react-navigation/native";
+
 export default function Login() {
   const [show, setShow] = React.useState(false);
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const navigation = useNavigation();
 
+  const onHandleLogin = () => {
+    if (userName !== "" && password !== "") {
+      signInwithEmailAndPassword(auth, userName, password)
+        .then(() => console.log("Login Success"))
+        .catch((err) => Alert.alert("Login Error", err.message));
+    }
+  };
   return (
     <NativeBaseProvider>
       <StatusBar
@@ -47,6 +62,8 @@ export default function Login() {
         <Stack space={4} w="100%" alignItems="center">
           {/* Username input */}
           <Input
+            value={userName}
+            onChangeText={(text) => setUserName(text)}
             fontSize={20}
             w={{
               base: "80%",
@@ -66,6 +83,8 @@ export default function Login() {
           {/* Password input */}
 
           <Input
+            value={password}
+            onChangeText={(text) => setPassword(text)}
             fontSize={20}
             w={{
               base: "80%",
@@ -116,11 +135,15 @@ export default function Login() {
           }}
           alignSelf="center"
           rounded="full"
+          onPress={onHandleLogin}
         >
           Sign In
         </Button>
         {/* Create new account */}
-        <TouchableOpacity style={{ padding: 12 }}>
+        <TouchableOpacity
+          style={{ padding: 12 }}
+          onPress={() => navigation.navigate("SignUp")}
+        >
           <Text style={{ color: "white", alignSelf: "center", margin: 10 }}>
             Create new account
           </Text>

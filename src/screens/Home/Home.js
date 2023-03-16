@@ -43,7 +43,7 @@ const Home = () => {
             )
           }
         />
-        {/* BRAINWASHERS */}
+        {/* BRAINWASHERS SABI DAW NILA, PARANG GUSTO KO MANAPAK */}
         <HomeCard
           imageUrl="https://mdic.org/wp-content/uploads/2020/06/Sites-Mayo-scaled.jpg"
           title="Primary infection (Acute HIV)"

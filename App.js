@@ -12,14 +12,7 @@ import { auth } from "./src/auth/firebase";
 const Stack = createNativeStackNavigator();
 const AuthenticatedUserContext = createContext({});
 
-const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  return (
-    <AuthProvider.Provider value={{ user, setUser }}>
-      {children}
-    </AuthProvider.Provider>
-  );
-};
+const AuthProvider = AuthenticatedUserContext.Provider; // Define AuthProvider using AuthenticatedUserContext
 
 function MainStack() {
   return (
@@ -69,5 +62,10 @@ function RootNavigator() {
 }
 
 export default function App() {
-  return <RootNavigator />;
+  return (
+    <AuthProvider value={{ user, setUser }}>r {/* Use AuthProvider to wrap the root component and pass user and setUser as value */}
+      <RootNavigator />
+      
+    </AuthProvider>
+  );
 }

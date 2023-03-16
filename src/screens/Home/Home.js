@@ -43,7 +43,17 @@ const Home = () => {
             )
           }
         />
-      
+        {/* BRAINWASHERS */}
+        <HomeCard
+          imageUrl="https://mdic.org/wp-content/uploads/2020/06/Sites-Mayo-scaled.jpg"
+          title="Primary infection (Acute HIV)"
+          description="Some people infected by HIV develop a flu-like illness within 2 to 4 weeks after the virus enters the body. This illness, known as primary (acute) HIV infection, may last for a few weeks."
+          onPress={() =>
+            Linking.openURL(
+              "https://www.mayoclinic.org/diseases-conditions/hiv-aids/symptoms-causes/syc-20373524"
+            )
+          }
+        />
       </ScrollView>
     </NativeBaseProvider>
   );
